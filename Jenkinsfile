@@ -44,7 +44,7 @@ pipeline {
         }
         stage('docker-build') {
             steps {
-                  sh 'docker build -t dockerswaha/ekart:v1 docker/'
+                  sh 'docker build -t dockerswaha/ekart:v1 .'
             }
         }
     }
