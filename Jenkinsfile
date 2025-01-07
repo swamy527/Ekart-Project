@@ -54,7 +54,7 @@ pipeline {
         }
         stage('docker-publish') {
             steps {
-                  withDockerRegistry(credentialsId: 'docker-cred', url: 'docker.io') {
+                  withDockerRegistry(credentialsId: 'docker-cred', url: 'https://index.docker.io/v1/') {
                     sh 'docker push dockerswaha/ekart:v1'
                   }
             }
