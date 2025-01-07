@@ -59,10 +59,10 @@ pipeline {
                   }
             }
         }
-        stage('app-deploy') {
-            steps {
-                    sh "kubectl apply -f deploymentservice.yml -n webapps"
-                }
-        }
+        // stage('app-deploy') {
+        //     steps {
+        //             sh "kubectl apply -f deploymentservice.yml -n webapps"
+        //         }
+        // }
     }
 }
