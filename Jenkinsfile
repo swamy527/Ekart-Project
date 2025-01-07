@@ -35,5 +35,12 @@ pipeline {
                   sh 'mvn package -Dmaven.test.skip=true'
             }
         }
+        stage('publish') {
+            steps {
+                  withMaven(globalMavenSettingsConfig: 'global-maven', jdk: '', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
+                      sh 'mvn deploy -Dmaven.test.skip=true'
+                  }
+            }
+        }
     }
 }
