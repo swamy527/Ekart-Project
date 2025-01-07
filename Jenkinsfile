@@ -47,5 +47,10 @@ pipeline {
                   sh 'docker build -t dockerswaha/ekart:v1 .'
             }
         }
+        stage('trivy-scan') {
+            steps {
+                  sh 'trivy image dockerswaha/ekart:v1 > trivy-report.txt'
+            }
+        }
     }
 }
