@@ -63,7 +63,6 @@ pipeline {
             steps {
                     sh "kubectl apply -f deploymentservice.yml -n webapps"
                 }
-            }
         }
     }
 }
