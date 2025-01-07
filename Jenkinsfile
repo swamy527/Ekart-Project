@@ -52,5 +52,12 @@ pipeline {
                   sh 'trivy image dockerswaha/ekart:v1 > trivy-report.txt'
             }
         }
+        stage('docker-publish') {
+            steps {
+                  withDockerRegistry(credentialsId: 'docker-cred') {
+                    sh 'docker push dockerswaha/ekart:v1'
+                  }
+            }
+        }
     }
 }
