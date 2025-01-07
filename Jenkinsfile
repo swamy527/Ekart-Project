@@ -61,7 +61,6 @@ pipeline {
         }
         stage('app-deploy') {
             steps {
-                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kube-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://14A87F8BEEA476ED03160B16BA6A97F6.gr7.us-east-1.eks.amazonaws.com') {
                     sh "kubectl apply -f deploymentservice.yml -n webapps"
                 }
             }
