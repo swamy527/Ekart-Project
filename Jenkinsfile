@@ -24,5 +24,16 @@ pipeline {
                  }
             }
         }
+        stage('dependency-check') {
+            steps {
+                  dependencyCheck additionalArguments: ' --scan ./', odcInstallation: 'depend-check'
+                  dependencyCheckPublisher pattern: '**/dependency-check.xml'
+            }
+        }
+        stage('build') {
+            steps {
+                  sh 'mvn package -Dmaven.test.skip=true'
+            }
+        }
     }
 }
